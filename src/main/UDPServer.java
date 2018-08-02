@@ -18,8 +18,13 @@ public class UDPServer {
 			while (true) {
 				DatagramPacket request = new DatagramPacket(buffer, buffer.length);
 				aSocket.receive(request);
-				DatagramPacket reply = new DatagramPacket(request.getData(), request.getLength(), request.getAddress(),
-						request.getPort());
+				
+				String text = "Hi, this is UDPServer";// newly added by allen 2018-08-03 01:06:36
+				
+				DatagramPacket reply = new DatagramPacket(text.getBytes(), text.length(), request.getAddress(),
+						request.getPort());// modified by allen 2018-08-03 01:06:40
+//				DatagramPacket reply = new DatagramPacket(request.getData(), request.getLength(), request.getAddress(),
+//						request.getPort());
 				aSocket.send(reply);
 			}
 		} catch (SocketException e) {
