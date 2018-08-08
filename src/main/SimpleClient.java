@@ -14,6 +14,7 @@ public class SimpleClient {
 		String st = new String(dis.readUTF());
 		System.out.println(st);
 // When done, just close the connection and exit
+		//try send some msg and keep the connection alive
 		dis.close();
 		s1In.close();
 		s1.close();
